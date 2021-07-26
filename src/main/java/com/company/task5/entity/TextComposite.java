@@ -26,11 +26,6 @@ public class TextComposite extends TextComponent {
 
     @Override
     public String toString() {
-/*        String text = "";
-        for (TextComponent element : components) {
-            text += element.toString();
-        }
-        return text;*/
         StringBuilder stringBuilder = new StringBuilder();
         components.forEach(component -> {
             ComponentType type = component.getComponentType();
@@ -39,9 +34,7 @@ public class TextComposite extends TextComponent {
             stringBuilder.append(prefix).append(component).append(suffix);
         });
 
-        return (componentType != ComponentType.TEXT)
-                ? stringBuilder.toString().strip()
-                : stringBuilder.toString().stripTrailing();
+        return stringBuilder.toString().stripTrailing();
     }
 }
 

@@ -2,8 +2,8 @@ package com.company.task5.entity;
 
 public enum ComponentType {
     TEXT,
-    PARAGRAPH("    ", "\r\n"),
-    SENTENCE(" ", ""),
+    PARAGRAPH("    ", "\n\t"),
+    SENTENCE,
     WORD(" ", ""),
     SYMBOL,
     LETTER;

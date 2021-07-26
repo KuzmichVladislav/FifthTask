@@ -27,17 +27,16 @@ public class LexemeParser extends AbstractParser {
             Matcher wordMatcher = wordPattern.matcher(lexeme);
             Matcher punctuationMatcher = punctuationPattern.matcher(lexeme);
 
+            while (punctuationMatcher.find()) {
+                String punctuation = punctuationMatcher.group();
+                TextComponent lexemeComponent = new Symbol(punctuation.charAt(0), ComponentType.SYMBOL);
+                composite.add(lexemeComponent);
+            }
             while (wordMatcher.find()) {
                 String word = wordMatcher.group();
                 TextComponent lexemeComponent = new TextComposite(ComponentType.WORD);
                 composite.add(lexemeComponent);
                 getHandler().parse(composite, word);
-            }
-
-            while (punctuationMatcher.find()) {
-                String punctuation = punctuationMatcher.group();
-                TextComponent lexemeComponent = new Symbol(punctuation.charAt(0), ComponentType.SYMBOL);
-                composite.add(lexemeComponent);
             }
         }
     }

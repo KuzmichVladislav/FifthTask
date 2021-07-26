@@ -19,7 +19,7 @@ public class WordParser extends AbstractParser {
     public void parse(TextComposite composite, String part) {
         List<String> listWords = List.of(part.split("\\s+"));
         for (String word : listWords) {
-            TextComposite wordComposite = new TextComposite(ComponentType.WORD);
+            TextComposite wordComposite = new TextComposite(ComponentType.LETTER);
             composite.add(wordComposite);
             getHandler().parse(composite, word);
         }

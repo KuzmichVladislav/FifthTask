@@ -20,6 +20,6 @@ public class ParsingTextMain {
         ParagraphParser parser = new ParagraphParser();
         parser.parse(structure, text);
         System.out.println(structure.count());
-        System.out.println(structure.toString());
+        System.out.println(structure);
     }
 }
