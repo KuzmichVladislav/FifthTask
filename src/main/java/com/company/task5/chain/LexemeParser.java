@@ -4,6 +4,8 @@ import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.Symbol;
 import com.company.task5.entity.TextComposite;
 
+import java.util.List;
+
 public class LexemeParser extends AbstractParser {
     private static final String LEXEME_REGEX = "\\s";
     private static final String WORD_REGEX = "\\p{L}";
@@ -12,12 +14,19 @@ public class LexemeParser extends AbstractParser {
 
     @Override
     public void parse(TextComposite composite, String part) {
-
-        String[] lexemes = part.split(LEXEME_REGEX);
+        List<String> lexemes = List.of(part.split(LEXEME_REGEX));
         for (String lexeme : lexemes) {
             TextComposite lexemeComposite = new TextComposite(ComponentType.LEXEME);
             composite.add(lexemeComposite);
-            for (int i = 0; i < lexeme.length(); i++) {
+            //getHandler().parse(composite, sentence);
+            nextParser.parse(lexemeComposite, lexeme);
+
+
+        /*String[] lexemes = part.split(LEXEME_REGEX);
+        for (String lexeme : lexemes) {
+            TextComposite lexemeComposite = new TextComposite(ComponentType.LEXEME);
+            composite.add(lexemeComposite);*/
+         /*   for (int i = 0; i < lexeme.length(); i++) {
                 char ch = lexeme.charAt(i);
                 if (String.valueOf(ch).matches(PUNCTUATION_REGEX)) {
                     Symbol leaf = new Symbol(ch, ComponentType.SYMBOL);
@@ -26,7 +35,8 @@ public class LexemeParser extends AbstractParser {
                     Symbol leaf = new Symbol(ch, ComponentType.LETTER);
                     composite.add(leaf);
                 }
-            }
+            }*/
+         //   nextParser.parse(composite, lexeme);
         }
     }
 }

@@ -26,7 +26,7 @@ public class TextComposite extends TextComponent {
     }
 
     @Override
-    public Collection<TextComponent> getChildren() {
+    public List<TextComponent> getChildren() {
         return new ArrayList<>(components);
     }
 

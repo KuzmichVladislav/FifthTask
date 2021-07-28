@@ -32,7 +32,7 @@ public class ParsingTextMain {
 
         TextService ts = new TextService();
         System.out.println(ts.findSentencesWithLongestWord(structure));
-       // System.out.println(structure);
+       //System.out.println(structure);
 
     }
 }
