@@ -1,5 +1,7 @@
 package com.company.task5.entity;
 
+import java.util.Collection;
+
 public class Symbol extends TextComponent {
     private char ch;
 
@@ -16,6 +18,12 @@ public class Symbol extends TextComponent {
     @Override
     public boolean add(TextComponent component) {
         throw new UnsupportedOperationException("add impossible");
+    }
+
+    @Override
+    public Collection<TextComponent> getChildren() {
+       // logger.error("An attempt to get children of symbol");
+        throw new UnsupportedOperationException();
     }
 
     @Override

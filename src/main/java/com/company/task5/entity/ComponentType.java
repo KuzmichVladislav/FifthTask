@@ -1,10 +1,11 @@
 package com.company.task5.entity;
 
+
 public enum ComponentType {
     TEXT,
     PARAGRAPH("    ", "\n\t"),
     SENTENCE,
-    WORD(" ", ""),
+    LEXEME(" ", ""),
     SYMBOL,
     LETTER;
 
@@ -26,4 +27,5 @@ public enum ComponentType {
     public String getSuffix() {
         return suffix;
     }
+
 }

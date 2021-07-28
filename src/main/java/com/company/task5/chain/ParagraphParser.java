@@ -7,18 +7,18 @@ import java.util.List;
 
 public class ParagraphParser extends AbstractParser {
     private static final String PARAGRAPH_SPLIT_REGEX = "[\\t\\n]+";
-    public ParagraphParser() {
+/*    public ParagraphParser() {
         super(new SentenceParser());
-    }
+    }*/
 
     @Override
     public void parse(TextComposite composite, String part) {
         List<String> listParagraph = List.of(part.split(PARAGRAPH_SPLIT_REGEX));
-        for (String paragraphs : listParagraph) {
-            TextComposite wordComposite = new TextComposite(ComponentType.PARAGRAPH);
-            composite.add(wordComposite);
-            getHandler().parse(composite, paragraphs);
-
+        for (String paragraph : listParagraph) {
+            TextComposite paragraphComposite = new TextComposite(ComponentType.PARAGRAPH);
+            composite.add(paragraphComposite);
+            //getHandler().parse(composite, paragraph);
+            nextParser.parse(composite, paragraph);
         }
     }
 }

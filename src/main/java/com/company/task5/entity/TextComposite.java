@@ -1,6 +1,7 @@
 package com.company.task5.entity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class TextComposite extends TextComponent {
@@ -22,6 +23,11 @@ public class TextComposite extends TextComponent {
     @Override
     public boolean add(TextComponent component) {
         return components.add(component);
+    }
+
+    @Override
+    public Collection<TextComponent> getChildren() {
+        return new ArrayList<>(components);
     }
 
     @Override

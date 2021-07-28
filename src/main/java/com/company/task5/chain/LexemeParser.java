@@ -2,43 +2,33 @@ package com.company.task5.chain;
 
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.Symbol;
-import com.company.task5.entity.TextComponent;
 import com.company.task5.entity.TextComposite;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LexemeParser extends AbstractParser {
     private static final String LEXEME_REGEX = "\\s";
-    private static final String WORD_REGEX = "[^.!?,]+";
-    private static final String PUNCTUATION_REGEX = "\\.|!|\\?|\\.{3}|,";
+    private static final String WORD_REGEX = "\\p{L}";
+    private static final String PUNCTUATION_REGEX = "\\p{P}|\\p{M}|\\p{S}";
 
-    public LexemeParser() {
-        super(new SymbolParser());
-    }
 
     @Override
     public void parse(TextComposite composite, String part) {
+
         String[] lexemes = part.split(LEXEME_REGEX);
-        Pattern wordPattern = Pattern.compile(WORD_REGEX);
-        Pattern punctuationPattern = Pattern.compile(PUNCTUATION_REGEX);
-
         for (String lexeme : lexemes) {
-            Matcher wordMatcher = wordPattern.matcher(lexeme);
-            Matcher punctuationMatcher = punctuationPattern.matcher(lexeme);
-
-            while (punctuationMatcher.find()) {
-                String punctuation = punctuationMatcher.group();
-                TextComponent lexemeComponent = new Symbol(punctuation.charAt(0), ComponentType.SYMBOL);
-                composite.add(lexemeComponent);
-            }
-            while (wordMatcher.find()) {
-                String word = wordMatcher.group();
-                TextComponent lexemeComponent = new TextComposite(ComponentType.WORD);
-                composite.add(lexemeComponent);
-                getHandler().parse(composite, word);
+            TextComposite lexemeComposite = new TextComposite(ComponentType.LEXEME);
+            composite.add(lexemeComposite);
+            for (int i = 0; i < lexeme.length(); i++) {
+                char ch = lexeme.charAt(i);
+                if (String.valueOf(ch).matches(PUNCTUATION_REGEX)) {
+                    Symbol leaf = new Symbol(ch, ComponentType.SYMBOL);
+                    composite.add(leaf);
+                } else if (String.valueOf(ch).matches(WORD_REGEX)) {
+                    Symbol leaf = new Symbol(ch, ComponentType.LETTER);
+                    composite.add(leaf);
+                }
             }
         }
     }
 }
+
 

@@ -1,5 +1,7 @@
 package com.company.task5.entity;
 
+import java.util.Collection;
+
 public abstract class TextComponent {
 
     final ComponentType componentType;
@@ -16,4 +18,5 @@ public abstract class TextComponent {
 
     abstract boolean add(TextComponent component);
 
+    public abstract Collection<TextComponent> getChildren();
 }

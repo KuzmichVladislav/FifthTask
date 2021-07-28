@@ -88,6 +88,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/TextParserFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/WordParser.java">
           <value>
             <set />
@@ -119,6 +124,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/TextComposite.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/service/TextService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../java-information-handling/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../java-information-handling/src/main/java/com/karnyshov/composite/main/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../java-information-handling/src/main/resources/data/test_text.txt">
           <value>
             <set />
           </value>
