@@ -22,6 +22,7 @@ public class ParsingTextMain {
 
         AbstractParser parser = TextParserFactory.createParser();
         parser.parse(structure, text);
+
       //  System.out.println(structure.;
         //System.out.println(structure.values().length);
        // System.out.println(structure.getChildren());
@@ -31,7 +32,7 @@ public class ParsingTextMain {
         //System.out.println(structure.getChildren());
 
         TextService ts = new TextService();
-        System.out.println(ts.findSentencesWithLongestWord(structure));
+        System.out.println(ts.removeSentencesWithLessNumber(structure,30));
        //System.out.println(structure);
 
     }

@@ -3,6 +3,8 @@ package com.company.task5.service;
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.TextComponent;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,18 +19,18 @@ public class TextService {
         return sortedParagraphs;
     }
 
+    private static class ParagraphComparator implements Comparator<TextComponent> {
+
+        @Override
+        public int compare(TextComponent o1, TextComponent o2) {
+            long firstCount = o1.getChildren().size();
+            long secondCount = o2.getChildren().size();
+
+            return Long.compare(firstCount, secondCount);
+        }
+    }
+
     public List<TextComponent> findSentencesWithLongestWord(TextComponent text) throws Exception {
-        //System.out.println(text.getChildren());
-        List<TextComponent> allSentences1 = text.getChildren();
-        System.out.println(allSentences1.get(6).getComponentType());
-        List<TextComponent> allSentences2 = allSentences1.get(7).getChildren();
-        System.out.println(allSentences2.get(7));
-
-
-        /*List<TextComponent> allSentences = text.getChildren()
-                .stream() // stream of paragraphs
-                //.flatMap(paragraph -> paragraph.getChildren().stream()) // stream of sentences
-                .collect(Collectors.toList());*/
 
         int maxLength = text.getChildren().stream()
                 .map(this::computeMaxWordLength)
@@ -45,7 +47,7 @@ public class TextService {
     private int computeMaxWordLength(TextComponent sentence) {
         int maxLength = sentence.getChildren()
                 .stream() // stream of lexemes
-                .filter(lexeme -> matchesType(lexeme, ComponentType.LEXEME)) // stream of words
+                .filter(lexeme -> matchesType(lexeme, ComponentType.LEXEME))
                 .map(word -> word.getChildren().size())
                 .max(Integer::compareTo)
                 .orElse(0);
@@ -55,19 +57,24 @@ public class TextService {
     }
 
     private boolean matchesType(TextComponent component, ComponentType type) {
-       // System.out.println(component.getComponentType());
+        // System.out.println(component.getComponentType());
         return component.getComponentType().equals(type);
     }
 
+    public List<TextComponent> removeSentencesWithLessNumber(TextComponent text, int wordСount) {
+        List<TextComponent> paragraphs = text.getChildren()
+                .stream().filter(sentence -> matchesType(sentence, ComponentType.SENTENCE))
+                .collect(Collectors.toList());
 
-    private static class ParagraphComparator implements Comparator<TextComponent> {
-
-        @Override
-        public int compare(TextComponent o1, TextComponent o2) {
-            long firstCount = o1.getChildren().size();
-            long secondCount = o2.getChildren().size();
-
-            return Long.compare(firstCount, secondCount);
+        List<TextComponent> result = new ArrayList<>();
+        for (int i = 0; i < paragraphs.size(); i++) {
+            System.out.println(paragraphs.get(i).getChildren().size());
+            if (paragraphs.get(i).getChildren().size() > wordСount) {
+                System.out.println(paragraphs.get(i));
+                result.add(paragraphs.get(i));
+            }
         }
+        return result;
     }
+
 }
