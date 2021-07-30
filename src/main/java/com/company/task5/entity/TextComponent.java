@@ -1,12 +1,12 @@
 package com.company.task5.entity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public abstract class TextComponent {
-    private List<TextComponent> components = new ArrayList<>();
+
     final ComponentType componentType;
+    private List<TextComponent> components = new ArrayList<>();
 
     public TextComponent(ComponentType componentType) {
         this.componentType = componentType;
@@ -16,7 +16,7 @@ public abstract class TextComponent {
         return componentType;
     }
 
-    public int count(){
+    public int count() {
         int counter = 0;
         for (TextComponent element : components) {
             counter += element.count();

@@ -1,6 +1,7 @@
 package com.company.task5.chain;
 
 public class TextParserFactory {
+
     private TextParserFactory() {
 
     }

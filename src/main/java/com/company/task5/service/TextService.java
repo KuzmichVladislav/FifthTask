@@ -3,31 +3,18 @@ package com.company.task5.service;
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.TextComponent;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class TextService {
+
     public List<TextComponent> sortParagraphsBySentenceAmount(TextComponent text) {
-        List<TextComponent> sortedParagraphs = text.getChildren()
+
+        return text.getChildren()
                 .stream()
                 .sorted(new ParagraphComparator())
                 .collect(Collectors.toList());
-
-        return sortedParagraphs;
-    }
-
-    private static class ParagraphComparator implements Comparator<TextComponent> {
-
-        @Override
-        public int compare(TextComponent o1, TextComponent o2) {
-            long firstCount = o1.getChildren().size();
-            long secondCount = o2.getChildren().size();
-
-            return Long.compare(firstCount, secondCount);
-        }
     }
 
     public List<TextComponent> findSentencesWithLongestWord(TextComponent text) throws Exception {
@@ -37,11 +24,9 @@ public class TextService {
                 .max(Integer::compareTo)
                 .orElseThrow(() -> new Exception("Sentence contains no words"));
 
-        List<TextComponent> sentencesWithLongestWord = text.getChildren().stream()
+        return text.getChildren().stream()
                 .filter(sentence -> computeMaxWordLength(sentence) == maxLength)
                 .collect(Collectors.toList());
-
-        return sentencesWithLongestWord;
     }
 
     private int computeMaxWordLength(TextComponent sentence) {
@@ -75,6 +60,51 @@ public class TextService {
             }
         }
         return result;
+    }
+
+    public Map<String, Integer> findIdenticalWords(TextComponent text) {
+
+        Map<String, Integer> map = new HashMap<>();
+        text.getChildren()
+                .stream()
+                .flatMap(component -> component.getChildren().stream())
+                .filter(component -> matchesType(component, ComponentType.LEXEME))
+                .forEach(word -> {
+                    String key = word.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase();
+                    int occurrences = map.getOrDefault(key, 0);
+                    map.put(key, ++occurrences);
+                });
+        return map;
+    }
+
+    public String countVowelsAndConsonants(TextComponent sentence) {
+
+        long vowelsCount = sentence.getChildren()
+                .stream()
+                .filter(component -> matchesType(component, ComponentType.LEXEME))
+                .flatMap(component -> component.getChildren().stream())
+                .filter(letter -> Pattern.matches("[aeiouаоуэиыеёяю]", letter.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase()))
+                .count();
+
+        long consonantsCount = sentence.getChildren()
+                .stream()
+                .filter(component -> matchesType(component, ComponentType.LEXEME))
+                .flatMap(component -> component.getChildren().stream())
+                .filter(letter -> !Pattern.matches("[aeiouаоуэиыеёяю]", letter.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase()))
+                .count();
+
+        return "Сount of vowels - " + vowelsCount + "\nСount of consonants  - " + consonantsCount;
+    }
+
+    private static class ParagraphComparator implements Comparator<TextComponent> {
+
+        @Override
+        public int compare(TextComponent o1, TextComponent o2) {
+            long firstCount = o1.getChildren().size();
+            long secondCount = o2.getChildren().size();
+
+            return Long.compare(firstCount, secondCount);
+        }
     }
 
 }

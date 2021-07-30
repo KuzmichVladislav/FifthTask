@@ -1,164 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="issues">
-    <option name="index">
-      <map>
-        <entry key="/Dummy.txt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="/a.dummy">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/CompositeMain.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/Symbol.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/TextComponent.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/TextComposite.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/AbstractParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/LexemaParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/LexemeParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParagraphParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParsinTextMain.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParsingTextMain.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/PatagraphParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/SentenceParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/SymbolParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/TextParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/TextParserFactory.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/WordParser.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/main.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/ComponentType.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Delimeter.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Delimiter.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Symbol.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/TextComponent.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/TextComposite.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/service/TextService.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../Task5/src/main/java/com/company/task4/entity/LogisticsCenter.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../java-information-handling/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../java-information-handling/src/main/java/com/karnyshov/composite/main/Main.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../java-information-handling/src/main/resources/data/test_text.txt">
-          <value>
-            <set />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
+    <component name="issues">
+        <option name="index">
+            <map>
+                <entry key="/Dummy.txt">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="/a.dummy">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/pom.xml">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/CompositeMain.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/Symbol.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/TextComponent.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/TextComposite.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/AbstractParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/LexemaParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/LexemeParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParagraphParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParsinTextMain.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/ParsingTextMain.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/PatagraphParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/SentenceParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/SymbolParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/TextParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/TextParserFactory.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/WordParser.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/chain/main.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/ComponentType.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Delimeter.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Delimiter.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/Symbol.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/TextComponent.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/entity/TextComposite.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/src/main/java/com/company/task5/service/TextService.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/../Task5/src/main/java/com/company/task4/entity/LogisticsCenter.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/../java-information-handling/pom.xml">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/../java-information-handling/src/main/java/com/karnyshov/composite/main/Main.java">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+                <entry key="$PROJECT_DIR$/../java-information-handling/src/main/resources/data/test_text.txt">
+                    <value>
+                        <set />
+                    </value>
+                </entry>
+            </map>
+        </option>
+    </component>
 </project>

@@ -1,6 +1,5 @@
 package com.company.task5.entity;
 
-
 public enum ComponentType {
     TEXT,
     PARAGRAPH("    ", "\n\t"),

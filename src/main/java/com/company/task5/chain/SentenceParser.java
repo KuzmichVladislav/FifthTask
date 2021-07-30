@@ -6,10 +6,8 @@ import com.company.task5.entity.TextComposite;
 import java.util.List;
 
 public class SentenceParser extends AbstractParser {
+
     private static final String SENTENCE_SPLIT_REGEX = "(?<=\\.{3}|\\.|\\?|!)\\s";
-/*    public SentenceParser() {
-        super(new LexemeParser());
-    }*/
 
     @Override
     public void parse(TextComposite composite, String part) {
@@ -17,7 +15,6 @@ public class SentenceParser extends AbstractParser {
         for (String sentence : listSentences) {
             TextComposite sentenceComposite = new TextComposite(ComponentType.SENTENCE);
             composite.add(sentenceComposite);
-            //getHandler().parse(composite, sentence);
             nextParser.parse(sentenceComposite, sentence);
         }
     }

@@ -6,10 +6,8 @@ import com.company.task5.entity.TextComposite;
 import java.util.List;
 
 public class ParagraphParser extends AbstractParser {
+
     private static final String PARAGRAPH_SPLIT_REGEX = "[\\t\\n]+";
-/*    public ParagraphParser() {
-        super(new SentenceParser());
-    }*/
 
     @Override
     public void parse(TextComposite composite, String part) {
@@ -17,7 +15,6 @@ public class ParagraphParser extends AbstractParser {
         for (String paragraph : listParagraph) {
             TextComposite paragraphComposite = new TextComposite(ComponentType.PARAGRAPH);
             composite.add(paragraphComposite);
-            //getHandler().parse(composite, paragraph);
             nextParser.parse(composite, paragraph);
         }
     }

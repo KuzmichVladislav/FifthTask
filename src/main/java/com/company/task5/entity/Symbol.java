@@ -1,9 +1,9 @@
 package com.company.task5.entity;
 
-import java.util.Collection;
 import java.util.List;
 
 public class Symbol extends TextComponent {
+
     private char ch;
 
     public Symbol(char ch, ComponentType componentType) {
@@ -23,7 +23,6 @@ public class Symbol extends TextComponent {
 
     @Override
     public List<TextComponent> getChildren() {
-       // logger.error("An attempt to get children of symbol");
         throw new UnsupportedOperationException();
     }
 

@@ -1,10 +1,10 @@
 package com.company.task5.entity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class TextComposite extends TextComponent {
+
     private List<TextComponent> components = new ArrayList<>();
 
     public TextComposite(ComponentType componentType) {
@@ -43,4 +43,3 @@ public class TextComposite extends TextComponent {
         return stringBuilder.toString().stripTrailing();
     }
 }
-
