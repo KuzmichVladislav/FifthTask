@@ -18,7 +18,97 @@
             <set />
           </value>
         </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/java/com/company/task2/entity/DemandDeposit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/java/com/company/task2/entity/TermDeposit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/java/com/company/task2/exception/DepositException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/java/com/company/task2/main/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/java/com/company/task2/validator/DepositXMLValidator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/resources/data_xml/deposits.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/resources/data_xml/wrong_file.fxml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/main/resources/data_xml/wrong_file.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task2/src/test/java/com/company/task2/validator/DepositXMLValidatorTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/main/java/com/company/task3/repository/impl/HeightSpecification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/main/java/com/company/task3/repository/impl/IdConeSpecification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/main/java/com/company/task3/repository/impl/RadiusSpecification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/test/java/com/company/task3/reader/impl/DataReaderImplTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/test/java/com/company/task3/repository/ConeRepositoryTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Task3/src/test/java/com/company/task3/validator/ShapeValidatorTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/company/task4/entity/LogisticsCenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/company/task4/reader/DataReader.java">
           <value>
             <set />
           </value>
@@ -204,16 +294,6 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/com/company/task5/service/TextServiceTest.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../Task5/src/main/java/com/company/task4/entity/LogisticsCenter.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../Task5/src/main/java/com/company/task4/reader/DataReader.java">
           <value>
             <set />
           </value>

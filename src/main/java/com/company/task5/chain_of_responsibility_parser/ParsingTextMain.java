@@ -25,7 +25,7 @@ public class ParsingTextMain {
         AbstractParser parser = TextParserFactory.createParser();
         parser.parse(structure, text);
 
-          System.out.println(structure);
+        System.out.println(structure);
         //for (int i = 0; i < structure.getChildren().size(); i++) {
         //  System.out.println(structure.getChildren().get(i).getComponentType());
         //System.out.println(structure.getChildren().get(i));
@@ -37,8 +37,8 @@ public class ParsingTextMain {
         //System.out.println(structure.count());
         //System.out.println(structure.getChildren());
         TextService ts = new TextService();
-       // System.out.println(ts.sortParagraphsBySentenceAmount(structure));
-       //  System.out.println(ts.findSentencesWithLongestWord(structure));
+        // System.out.println(ts.sortParagraphsBySentenceAmount(structure));
+        //  System.out.println(ts.findSentencesWithLongestWord(structure));
         //System.out.println(ts.removeSentencesWithLessNumber(structure, 30));
         //System.out.println(structure);
         //System.out.println(ts.findIdenticalWords(structure));

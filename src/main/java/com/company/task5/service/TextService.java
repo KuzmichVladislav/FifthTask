@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class TextService {
+
     private static final String PUNCTUATION_REGEX = "[\\p{P}\\p{M}\\p{S}]";
     private static final String LETTERS_REGEX = "[aeiouаоуэиыеёяю]";
 
@@ -136,5 +137,4 @@ public class TextService {
             return Long.compare(firstCount, secondCount);
         }
     }
-
 }

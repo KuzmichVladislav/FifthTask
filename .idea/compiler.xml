@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FifthTask(5)" />
-        <module name="FifthTask" />
+        <module name="Task5" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="13" />

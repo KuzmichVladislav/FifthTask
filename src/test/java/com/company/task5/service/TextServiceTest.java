@@ -25,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class TextServiceTest {
+
     private static final String RELATIVE_FILE_PATH = "data/text.txt";
     ClassLoader classLoader = TextServiceTest.class.getClassLoader();
     URL resource = classLoader.getResource(RELATIVE_FILE_PATH);
@@ -35,7 +36,6 @@ public class TextServiceTest {
     TextComposite structure = new TextComposite(ComponentType.TEXT);
 
     AbstractParser parser = TextParserFactory.createParser();
-
 
     public TextServiceTest() throws CompositeException {
     }
@@ -62,7 +62,7 @@ public class TextServiceTest {
     @Test
     public void testFindSentencesWithLongestWord() throws Exception {
         System.out.println("findSentencesWithLongestWord");
-       // TextComponent text = null;
+        // TextComponent text = null;
         TextService instance = new TextService();
         List<TextComponent> expResult = null;
         List<TextComponent> result = instance.findSentencesWithLongestWord(structure);
