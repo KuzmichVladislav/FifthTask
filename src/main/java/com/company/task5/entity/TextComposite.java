@@ -37,9 +37,13 @@ public class TextComposite extends TextComponent {
             ComponentType type = component.getComponentType();
             String prefix = type.getPrefix();
             String suffix = type.getSuffix();
-            stringBuilder.append(prefix).append(component).append(suffix);
+            if (type.equals(ComponentType.PARAGRAPH)) {
+                stringBuilder.append(prefix).append(component.toString().substring(1)).append(suffix);
+            } else {
+                stringBuilder.append(prefix).append(component).append(suffix);
+            }
         });
 
-        return stringBuilder.toString().stripTrailing();
+        return stringBuilder.toString();
     }
 }

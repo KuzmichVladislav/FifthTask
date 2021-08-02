@@ -1,4 +1,4 @@
-package com.company.task5.chain;
+package com.company.task5.chain_of_responsibility_parser;
 
 import com.company.task5.entity.TextComposite;
 
@@ -22,7 +22,7 @@ public abstract class AbstractParser {
 
         @Override
         public void parse(TextComposite composite, String part) {
-
+            //method for inner class
         }
     }
 }

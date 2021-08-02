@@ -8,7 +8,7 @@ public abstract class TextComponent {
     final ComponentType componentType;
     private List<TextComponent> components = new ArrayList<>();
 
-    public TextComponent(ComponentType componentType) {
+    protected TextComponent(ComponentType componentType) {
         this.componentType = componentType;
     }
 

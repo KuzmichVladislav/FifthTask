@@ -1,4 +1,4 @@
-package com.company.task5.chain;
+package com.company.task5.chain_of_responsibility_parser;
 
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.TextComposite;

@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Symbol extends TextComponent {
 
-    private char ch;
+    private final char characterSymbol;
 
-    public Symbol(char ch, ComponentType componentType) {
+    public Symbol(char characterSymbol, ComponentType componentType) {
         super(componentType);
-        this.ch = ch;
+        this.characterSymbol = characterSymbol;
     }
 
     @Override
@@ -23,11 +23,11 @@ public class Symbol extends TextComponent {
 
     @Override
     public List<TextComponent> getChildren() {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("Symbol cannot contain anything");
     }
 
     @Override
     public String toString() {
-        return Character.toString(ch);
+        return Character.toString(characterSymbol);
     }
 }

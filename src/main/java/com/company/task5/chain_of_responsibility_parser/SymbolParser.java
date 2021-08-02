@@ -1,4 +1,4 @@
-package com.company.task5.chain;
+package com.company.task5.chain_of_responsibility_parser;
 
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.Symbol;
@@ -6,7 +6,7 @@ import com.company.task5.entity.TextComposite;
 
 public class SymbolParser extends AbstractParser {
 
-    private static final String PUNCTUATION_REGEX = "\\p{P}|\\p{M}|\\p{S}";
+    private static final String PUNCTUATION_REGEX = "[\\p{P}\\p{M}\\p{S}]";
     private static final String WORD_REGEX = "\\p{L}";
 
     @Override

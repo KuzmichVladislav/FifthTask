@@ -2,61 +2,83 @@ package com.company.task5.service;
 
 import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.TextComponent;
+import com.company.task5.exception.CompositeException;
 
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class TextService {
+    private static final String PUNCTUATION_REGEX = "[\\p{P}\\p{M}\\p{S}]";
+    private static final String LETTERS_REGEX = "[aeiouаоуэиыеёяю]";
 
     public List<TextComponent> sortParagraphsBySentenceAmount(TextComponent text) {
 
-        return text.getChildren()
-                .stream()
-                .sorted(new ParagraphComparator())
-                .collect(Collectors.toList());
+        List<TextComponent> list = new ArrayList<>(text.getChildren());
+        list.sort(new ParagraphComparator());
+        return list;
     }
 
-    public List<TextComponent> findSentencesWithLongestWord(TextComponent text) throws Exception {
+    public List<TextComponent> findSentencesWithLongestWord(TextComponent text) throws CompositeException {
 
-        int maxLength = text.getChildren().stream()
-                .map(this::computeMaxWordLength)
-                .max(Integer::compareTo)
-                .orElseThrow(() -> new Exception("Sentence contains no words"));
+        List<TextComponent> allSentences = new ArrayList<>();
+        for (TextComponent paragraph : text.getChildren()) {
+            allSentences.addAll(paragraph.getChildren());
+        }
 
-        return text.getChildren().stream()
-                .filter(sentence -> computeMaxWordLength(sentence) == maxLength)
-                .collect(Collectors.toList());
+        boolean seen = false;
+        Integer best = null;
+        for (TextComponent allSentence : allSentences) {
+            Integer computeMaxWordLength = computeMaxWordLength(allSentence);
+            if (!seen || computeMaxWordLength.compareTo(best) > 0) {
+                seen = true;
+                best = computeMaxWordLength;
+            }
+        }
+        int maxLength = (seen ? Optional.of(best) : Optional.<Integer>empty())
+                .orElseThrow(() -> new CompositeException("Sentence contains no words"));
+
+        List<TextComponent> sentencesWithLongestWord = new ArrayList<>();
+        for (TextComponent sentence : allSentences) {
+            if (computeMaxWordLength(sentence) == maxLength) {
+                sentencesWithLongestWord.add(sentence);
+            }
+        }
+
+        return sentencesWithLongestWord;
     }
 
     private int computeMaxWordLength(TextComponent sentence) {
-        int maxLength = sentence.getChildren()
-                .stream() // stream of lexemes
-                .filter(lexeme -> matchesType(lexeme, ComponentType.LEXEME))
-                .map(word -> word.getChildren().size())
-                .max(Integer::compareTo)
-                .orElse(0);
-        //System.out.println(sentence.getComponentType());
+        boolean seen = false;
+        Integer best = null;
+        for (TextComponent lexeme : sentence.getChildren()) {
+            if (matchesType(lexeme, ComponentType.LEXEME)) {
+                Integer size = lexeme.getChildren().size();
+                if (!seen || size.compareTo(best) > 0) {
+                    seen = true;
+                    best = size;
+                }
+            }
+        }
 
-        return maxLength;
+        return seen ? best : 0;
     }
 
     private boolean matchesType(TextComponent component, ComponentType type) {
-        // System.out.println(component.getComponentType());
         return component.getComponentType().equals(type);
     }
 
-    public List<TextComponent> removeSentencesWithLessNumber(TextComponent text, int wordСount) {
-        List<TextComponent> paragraphs = text.getChildren()
-                .stream().filter(sentence -> matchesType(sentence, ComponentType.SENTENCE))
-                .collect(Collectors.toList());
+    public List<TextComponent> removeSentencesWithLessNumber(TextComponent text, int wordCount) {
+        List<TextComponent> paragraphs = new ArrayList<>();
+        for (TextComponent sentence : text.getChildren()) {
+            if (matchesType(sentence, ComponentType.SENTENCE)) {
+                paragraphs.add(sentence);
+            }
+        }
 
         List<TextComponent> result = new ArrayList<>();
-        for (int i = 0; i < paragraphs.size(); i++) {
-            System.out.println(paragraphs.get(i).getChildren().size());
-            if (paragraphs.get(i).getChildren().size() > wordСount) {
-                System.out.println(paragraphs.get(i));
-                result.add(paragraphs.get(i));
+        for (TextComponent paragraph : paragraphs) {
+            if (paragraph.getChildren().size() > wordCount) {
+                result.add(paragraph);
             }
         }
         return result;
@@ -65,35 +87,43 @@ public class TextService {
     public Map<String, Integer> findIdenticalWords(TextComponent text) {
 
         Map<String, Integer> map = new HashMap<>();
-        text.getChildren()
-                .stream()
-                .flatMap(component -> component.getChildren().stream())
-                .filter(component -> matchesType(component, ComponentType.LEXEME))
-                .forEach(word -> {
-                    String key = word.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase();
+        for (TextComponent component : text.getChildren()) {
+            for (TextComponent word : component.getChildren()) {
+                if (matchesType(word, ComponentType.LEXEME)) {
+                    String key = word.toString().replaceAll(PUNCTUATION_REGEX, "").toLowerCase();
                     int occurrences = map.getOrDefault(key, 0);
                     map.put(key, ++occurrences);
-                });
+                }
+            }
+        }
         return map;
     }
 
     public String countVowelsAndConsonants(TextComponent sentence) {
 
-        long vowelsCount = sentence.getChildren()
-                .stream()
-                .filter(component -> matchesType(component, ComponentType.LEXEME))
-                .flatMap(component -> component.getChildren().stream())
-                .filter(letter -> Pattern.matches("[aeiouаоуэиыеёяю]", letter.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase()))
-                .count();
+        long vowelsCount = 0L;
+        for (TextComponent textComponent : sentence.getChildren()) {
+            if (matchesType(textComponent, ComponentType.LEXEME)) {
+                for (TextComponent letter1 : textComponent.getChildren()) {
+                    if (Pattern.matches(LETTERS_REGEX, letter1.toString().replaceAll(PUNCTUATION_REGEX, "").toLowerCase())) {
+                        vowelsCount++;
+                    }
+                }
+            }
+        }
 
-        long consonantsCount = sentence.getChildren()
-                .stream()
-                .filter(component -> matchesType(component, ComponentType.LEXEME))
-                .flatMap(component -> component.getChildren().stream())
-                .filter(letter -> !Pattern.matches("[aeiouаоуэиыеёяю]", letter.toString().replaceAll("\\p{P}|\\p{M}|\\p{S}", "").toLowerCase()))
-                .count();
+        long consonantsCount = 0L;
+        for (TextComponent component : sentence.getChildren()) {
+            if (matchesType(component, ComponentType.LEXEME)) {
+                for (TextComponent letter : component.getChildren()) {
+                    if (!Pattern.matches(LETTERS_REGEX, letter.toString().replaceAll(PUNCTUATION_REGEX, "").toLowerCase())) {
+                        consonantsCount++;
+                    }
+                }
+            }
+        }
 
-        return "Сount of vowels - " + vowelsCount + "\nСount of consonants  - " + consonantsCount;
+        return "Count of vowels - " + vowelsCount + "\nCount of consonants  - " + consonantsCount;
     }
 
     private static class ParagraphComparator implements Comparator<TextComponent> {

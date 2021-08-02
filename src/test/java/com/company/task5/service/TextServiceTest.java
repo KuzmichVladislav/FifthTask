@@ -5,51 +5,69 @@
  */
 package com.company.task5.service;
 
+import com.company.task5.chain_of_responsibility_parser.AbstractParser;
+import com.company.task5.chain_of_responsibility_parser.TextParserFactory;
+import com.company.task5.entity.ComponentType;
 import com.company.task5.entity.TextComponent;
-import java.util.List;
-import java.util.Map;
+import com.company.task5.entity.TextComposite;
+import com.company.task5.exception.CompositeException;
+import com.company.task5.reader.DataReader;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author kon
- */
+import java.io.File;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 public class TextServiceTest {
-    
-    public TextServiceTest() {
+    private static final String RELATIVE_FILE_PATH = "data/text.txt";
+    ClassLoader classLoader = TextServiceTest.class.getClassLoader();
+    URL resource = classLoader.getResource(RELATIVE_FILE_PATH);
+    String absolutePath = new File(resource.getFile()).getAbsolutePath();
+    DataReader reader = new DataReader();
+    String text = reader.readFromFile(absolutePath);
+
+    TextComposite structure = new TextComposite(ComponentType.TEXT);
+
+    AbstractParser parser = TextParserFactory.createParser();
+
+
+    public TextServiceTest() throws CompositeException {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @Before
     public void setUp() {
+        parser.parse(structure, text);
     }
 
     @Test
     public void testSortParagraphsBySentenceAmount() {
         System.out.println("sortParagraphsBySentenceAmount");
-        TextComponent text = null;
         TextService instance = new TextService();
         List<TextComponent> expResult = null;
-        List<TextComponent> result = instance.sortParagraphsBySentenceAmount(text);
+        List<TextComponent> result = instance.sortParagraphsBySentenceAmount(structure);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        // fail("The test case is a prototype.");
     }
 
     @Test
     public void testFindSentencesWithLongestWord() throws Exception {
         System.out.println("findSentencesWithLongestWord");
-        TextComponent text = null;
+       // TextComponent text = null;
         TextService instance = new TextService();
         List<TextComponent> expResult = null;
-        List<TextComponent> result = instance.findSentencesWithLongestWord(text);
+        List<TextComponent> result = instance.findSentencesWithLongestWord(structure);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     @Test
@@ -85,5 +103,24 @@ public class TextServiceTest {
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
-    
+
+    @Test
+    public void sortParagraphsBySentenceAmount() {
+    }
+
+    @Test
+    public void findSentencesWithLongestWord() {
+    }
+
+    @Test
+    public void removeSentencesWithLessNumber() {
+    }
+
+    @Test
+    public void findIdenticalWords() {
+    }
+
+    @Test
+    public void countVowelsAndConsonants() {
+    }
 }
